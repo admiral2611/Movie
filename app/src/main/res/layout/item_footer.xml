@@ -57,12 +57,11 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/shape_category_more"
                 android:fontFamily="@font/roboto_slab"
                 android:gravity="center"
                 android:text="fantasy"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
+                app:layout_constraintBottom_toTopOf="@+id/textData"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView" />
 
             <TextView
