@@ -2,12 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#0B2BDF"
     android:layout_height="match_parent"
+    android:background="#0B2BDF"
     tools:context=".ui.ticket.PagesTicket">
 
     <TextView
-        android:id="@+id/ticket_pages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
