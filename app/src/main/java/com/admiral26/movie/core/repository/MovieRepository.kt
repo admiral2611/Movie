@@ -10,7 +10,6 @@ import java.io.IOException
 class MovieRepository {
 
     private val service = ApiClient.createService()
-    private val servicefoot = ApiClient.createService()
 
    suspend fun getMoviesHed(): ResultWrapper<HeaderRespons, Any> {
         return try {
@@ -32,7 +31,7 @@ class MovieRepository {
     suspend fun getMoviesFoot():ResultWrapper<FooterRespons,Any>{
         return try {
 
-            val result = servicefoot.getFooter("10137bab07a7a987b23a902a78d6986c")
+            val result = service.getFooter("10137bab07a7a987b23a902a78d6986c")
             if (result.isSuccessful){
                 Log.d("bodyFoot", "getMoviesFoot: ${result.body().toString()}")
                 ResultWrapper.Success(result.body(),result.code())
