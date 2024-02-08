@@ -1,5 +1,6 @@
 package com.admiral26.movie.core.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +23,9 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.FootViewHolder>() {
 
         fun bindData(data: ResultFootArticle) {
 
+            binding.title.text = data.originalTitle
             binding.textData.text = data.releaseDate
+            Log.d("foot11", "bindData: ${data.originalTitle}")
             Glide.with(binding.shapeableImageView.context)
                 .load("https://image.tmdb.org/t/p/original${data.posterPath}")
                 .into(binding.shapeableImageView)

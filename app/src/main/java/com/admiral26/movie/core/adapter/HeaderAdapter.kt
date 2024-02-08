@@ -1,5 +1,6 @@
 package com.admiral26.movie.core.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,12 +22,14 @@ class HeaderAdapter : RecyclerView.Adapter<HeaderAdapter.HeaderViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindData(data: ResultArticles) {
-            binding.titleFilm.text = data.originalTitle
+            Log.d("tag11", "bindData: ${data.originalTitle}")
+            Log.d("tag11", "bindData: ${data.voteAverage.toString()}")
+            binding.titleFilm.text=data.originalTitle
             binding.ratingHed.text = data.voteAverage.toString()
 
-            Glide.with(binding.imageCard.context)
+            Glide.with(binding.cardView.context)
                 .load("https://image.tmdb.org/t/p/original${data.posterPath}")
-                .into(binding.imageCard)
+                .into(binding.cardView)
 
 
         }

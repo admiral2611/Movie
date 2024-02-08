@@ -13,10 +13,11 @@ object ApiClient {
         return Retrofit.Builder()
             .baseUrl(" https://api.themoviedb.org/")
             .addConverterFactory(GsonConverterFactory.create())
+            .client(getOkHttp())
             .build()
     }
 
-   /* private fun getOkHttp(): OkHttpClient {
+    private fun getOkHttp(): OkHttpClient {
         return OkHttpClient.Builder()
             .readTimeout(30, TimeUnit.SECONDS)
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -32,6 +33,5 @@ object ApiClient {
             .alwaysReadResponseBody(true)
             .build()
     }
-*/
     fun createService(): MovieService = getRetrofit().create(MovieService::class.java)
 }

@@ -5,46 +5,41 @@
     android:layout_height="match_parent">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/cardView"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginHorizontal="10dp"
         android:elevation="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/images"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/image_card"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/images" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/circleImageView" />
 
     <TextView
         android:id="@+id/title_film"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_slab"
-        android:textSize="18sp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_slab"
         android:text="Spiderman:No Way Home"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:layout_width="0dp"
         android:id="@+id/rating_hed"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="9/1"
+        app:drawableLeftCompat="@drawable/baseline_star_rate_24"
         app:layout_constraintEnd_toEndOf="@+id/title_film"
         app:layout_constraintStart_toStartOf="@+id/title_film"
-        app:layout_constraintTop_toBottomOf="@+id/title_film"
-        app:drawableLeftCompat="@drawable/baseline_star_rate_24" />
+        app:layout_constraintTop_toBottomOf="@+id/title_film" />
 </androidx.constraintlayout.widget.ConstraintLayout>

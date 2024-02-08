@@ -2,6 +2,7 @@ package com.admiral26.movie.core.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.admiral26.movie.core.model.BaseModel
 import com.admiral26.movie.core.model.footerRes.FooterRespons
@@ -15,6 +16,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setData(multiData: ArrayList<BaseModel>) {
         this.data.clear()
+        data.sortBy { it.getType() }
         this.data.addAll(multiData)
         notifyDataSetChanged()
     }
@@ -40,6 +42,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val adapter = FooterAdapter()
         fun bindDataToFoot(data: FooterRespons) {
             binding.rvList.adapter = adapter
+            binding.rvList.layoutManager = LinearLayoutManager(binding.root.context)
             adapter.setDataFoot(data = data.resultFootArticles)
         }
     }

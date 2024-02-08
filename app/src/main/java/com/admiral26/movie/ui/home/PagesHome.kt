@@ -2,6 +2,7 @@ package com.admiral26.movie.ui.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -28,20 +29,32 @@ class PagesHome : BaseFragment(R.layout.home_page) {
     }
 
     private fun observe() {
-        homeLD.movieListLD.observe(requireActivity()) {
+        /*homeLD.movieListLD.observe(requireActivity()) {
             multiData.add(it)
             one = true
-            if (this.one &&two){
-                this.adapter.setData(multiData)
-            }
-        }
-        homeLD.movieFootListLD.observe(requireActivity()) {
-            multiData.add(it)
-            two = true
-            if (one&& this.two){
+            if (one && two) {
                 this.adapter.setData(multiData)
             }
 
+        }*/
+
+        homeLD.movieListLD.observe(viewLifecycleOwner){
+            one=true
+            multiData.add(it)
+            if (one&&two){
+                this.adapter.setData(multiData)
+            }
+
+        }
+
+        homeLD.movieFootListLD.observe(viewLifecycleOwner){
+            two=true
+            Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show()
+            multiData.add(it)
+           if (one&&two){
+               this.adapter.setData(multiData)
+               Toast.makeText(context, "foot list", Toast.LENGTH_SHORT).show()
+           }
         }
     }
 
@@ -49,6 +62,5 @@ class PagesHome : BaseFragment(R.layout.home_page) {
         multiData.clear()
         binding.multiRvList.adapter = adapter
         binding.multiRvList.layoutManager = LinearLayoutManager(context)
-        binding.multiRvList.setHasFixedSize(true)
     }
 }
