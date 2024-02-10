@@ -22,7 +22,7 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.FootViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindData(data: ResultFootArticle) {
-
+            binding.rating.text = data.voteAverage.toString()
             binding.title.text = data.originalTitle
             binding.textData.text = data.releaseDate
             Log.d("foot11", "bindData: ${data.originalTitle}")
@@ -30,7 +30,9 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.FootViewHolder>() {
                 .load("https://image.tmdb.org/t/p/original${data.posterPath}")
                 .into(binding.shapeableImageView)
 
+
         }
+
     }
 
     override fun onCreateViewHolder(

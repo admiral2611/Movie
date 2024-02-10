@@ -6,14 +6,15 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_marginVertical="10dp"
         android:layout_height="150dp"
+        android:layout_marginVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrant"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -21,7 +22,7 @@
                 android:id="@+id/shapeableImageView"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/images"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -34,25 +35,34 @@
                 android:id="@+id/title_"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_slab"
-                android:text="malificienta"
-                android:layout_marginLeft="10dp"
                 android:maxLines="2"
+                android:text="malificienta"
                 app:layout_constraintBottom_toTopOf="@+id/rating"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/rating"
+                android:id="@+id/ic_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:drawableLeft="@drawable/baseline_star_rate_24"
+                android:fontFamily="@font/roboto_slab"
+                app:layout_constraintBottom_toTopOf="@+id/category1"
+                app:drawableLeftCompat="@drawable/baseline_star_rate_24"
+                app:layout_constraintStart_toEndOf="@+id/shapeableImageView" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
                 android:fontFamily="@font/roboto_slab"
                 android:text="9/5"
                 app:layout_constraintBottom_toTopOf="@+id/category1"
-                app:layout_constraintStart_toEndOf="@+id/shapeableImageView" />
+                app:layout_constraintStart_toEndOf="@+id/ic_rating" />
 
             <TextView
                 android:id="@+id/category1"
@@ -100,6 +110,15 @@
                 android:text="1:30:00"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/shapeableImageView" />
+
+            <!--  <ProgressBar
+                  android:layout_width="wrap_content"
+                  android:id="@+id/foot_progres"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
