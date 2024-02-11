@@ -17,11 +17,7 @@ class PagesHome : BaseFragment(R.layout.home_page) {
     private val binding by viewBinding(HomePageBinding::bind)
     private val homeLD: HomeViewModel by viewModels()
     private val data = MediatorLiveData<Pair<HeaderRespons?, FooterRespons?>>()
-
-    //private val multiData = ArrayList<BaseModel>()
     private val adapter by lazy { MultiAdapter() }
-    /* private var one = false
-     private var two = false*/
 
 
     override fun onCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,34 +46,6 @@ class PagesHome : BaseFragment(R.layout.home_page) {
                 adapter.addData(data2)
             }
         }
-
-        /*homeLD.movieListLD.observe(requireActivity()) {
-            multiData.add(it)
-            one = true
-            if (one && two) {
-                this.adapter.setData(multiData)
-            }
-
-        }*/
-
-        /*   homeLD.movieListLD.observe(viewLifecycleOwner){
-               one=true
-               multiData.add(it)
-               if (one&&two){
-                   this.adapter.setData(multiData)
-               }
-
-           }
-
-           homeLD.movieFootListLD.observe(viewLifecycleOwner){
-               two=true
-               Toast.makeText(context, "Added", Toast.LENGTH_SHORT).show()
-               multiData.add(it)
-              if (one&&two){
-                  this.adapter.setData(multiData)
-                  Toast.makeText(context, "foot list", Toast.LENGTH_SHORT).show()
-              }
-           }*/
     }
 
     private fun loadAdapter() {

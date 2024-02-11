@@ -8,7 +8,6 @@ import com.admiral26.movie.core.model.headerRes.HeaderRespons
 import com.admiral26.movie.core.repository.MovieRepository
 import com.admiral26.movie.core.util.ResultWrapper
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class HomeViewModel : ViewModel() {
     private val repository = MovieRepository()
@@ -21,30 +20,40 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
 
             when (val result = repository.getMoviesHed()) {
+                is ResultWrapper.ErrorResponse -> {
+
+                }
+
+                is ResultWrapper.NetworkError -> {
+
+                }
+
                 is ResultWrapper.Success -> {
                     result.response?.let {
                         movieListLD.value = it
                     }
                 }
-
-                is ResultWrapper.Error -> {
-                    movieErrorLD.value = result.message.toString()
-                }
             }
+
         }
     }
+
     fun getFoot() {
         viewModelScope.launch {
 
             when (val result = repository.getMoviesFoot()) {
+                is ResultWrapper.ErrorResponse -> {
+
+                }
+
+                is ResultWrapper.NetworkError -> {
+
+                }
+
                 is ResultWrapper.Success -> {
                     result.response?.let {
                         movieFootListLD.value = it
                     }
-                }
-
-                is ResultWrapper.Error -> {
-                    movieErrorLD.value = result.message.toString()
                 }
             }
         }
