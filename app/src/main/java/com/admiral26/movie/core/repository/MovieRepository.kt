@@ -2,14 +2,13 @@ package com.admiral26.movie.core.repository
 
 import com.admiral26.movie.core.model.footerRes.FooterRespons
 import com.admiral26.movie.core.model.headerRes.HeaderRespons
-import com.admiral26.movie.core.network.ApiClient
+import com.admiral26.movie.core.network.service.MovieService
 import com.admiral26.movie.core.util.ResultWrapper
 import com.admiral26.movie.core.util.parseResponse
 import kotlinx.coroutines.Dispatchers
 
-class MovieRepository {
+class MovieRepository(val service: MovieService) {
 
-    private val service = ApiClient.createService()
 
     suspend fun getMoviesHed(): ResultWrapper<HeaderRespons?, Any> {
         return parseResponse(Dispatchers.IO) {

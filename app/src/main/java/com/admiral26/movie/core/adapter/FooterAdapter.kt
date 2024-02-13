@@ -1,6 +1,5 @@
 package com.admiral26.movie.core.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,7 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.FootViewHolder>() {
 
     fun setDataFoot(data: List<ResultFootArticle>) {
         this.data.clear()
-        this.data.addAll(data)
+        this.data.addAll(data.shuffled())
         notifyDataSetChanged()
     }
 
@@ -25,7 +24,6 @@ class FooterAdapter : RecyclerView.Adapter<FooterAdapter.FootViewHolder>() {
             binding.rating.text = data.voteAverage.toString()
             binding.title.text = data.originalTitle
             binding.textData.text = data.releaseDate
-            Log.d("foot11", "bindData: ${data.originalTitle}")
             Glide.with(binding.shapeableImageView.context)
                 .load("https://image.tmdb.org/t/p/original${data.posterPath}")
                 .into(binding.shapeableImageView)
